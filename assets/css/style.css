@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    text-decoration: none;
+}
+
+:root {
+    --cor-principal: #1780D3;
+    --cor-principal-dark: #233F54;
+    --cor-secundaria: #FFFF01;
+    --cor-secundaria-dark: #CCCC00;
+    --cor-terciaria: #000000;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Estilizações gerais */
+
+.div-centralizada_horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-centralizada_vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Estilizações do header e sua tags */  
+
+header.div-centralizada_horizontal {
+    justify-content: space-between;
+    width: 100vw;
+    height: 80px;
+    padding: 0px 20px;
+    margin-bottom: 40px;
+    background-color: var(--cor-principal);
+}
+
+.logo-header {
+    height: 40px;
+    width: 40px;
+    background-color: red;
+}
+
+nav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    width: 80vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    background-color: var(--cor-principal-dark);
+}
+
+nav a {
+    color: var(--cor-secundaria);
+}
+
+nav .fechar-menu {
+    font-size: 30px;
+    margin-bottom: 50px;
+    align-self: flex-end;
+}
+
+.fechar-menu i {
+    cursor: pointer;
+    color: #fff;
+}
+
+.fechar-menu i:hover {
+    color: var(--cor-principal);
+    transition: all 0.2s linear;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+}
+
+nav li {
+    font-size: 24px;
+    width: inherit;
+}
+
+nav li:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+nav a {
+    display: block;
+    width: inherit;
+}
+
+.menu {
+    justify-content: space-between;
+    height: 40px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.linha-menu {
+    width: 100%;
+    height: 5px;
+    background-color: #fff;
+}
+
+/* Estilizações do main e suas tags */
+
+/* Section rodadas */
+
+section.div-centralizada_vertical {
+    width: 100vw;
+    align-items: flex-start;    
+    margin-bottom: 40px;
+}
+
+section h2 {
+    align-self: center;
+    margin-bottom: 20px;
+    color: var(--cor-principal-dark);
+}
+
+.jogos.div-centralizada_vertical {
+    display: flex;
+    align-items: flex-start;
+    width: 600vw;
+    overflow: hidden;
+}
+
+.partidas {
+    width: 100vw;
+}
+
+.rodada.div-centralizada_horizontal {
+    justify-content: space-between;
+    width: 100vw;
+    align-self: flex-start;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0px;
+}
+
+
+.rodada .n-rodada {
+    margin-bottom: 10px;
+}
+
+.rodada.div-centralizada_horizontal .mudar-rodada {
+    width: 80px;
+    padding: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.mudar-rodada:hover {
+    color: var(--cor-principal);
+    transition: all 0.2s linear;
+}
+
+.partidas:first-child .fa-arrow-left,
+.partidas:last-child .fa-arrow-right{
+    color: #ccc;
+}
+ 
+.partida {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0px;
+}
+
+.partida.div-centralizada_horizontal {
+    justify-content: space-around;
+}
+
+/* Section mapa */
+.mapa {
+    width: 100%;
+}
+
+
