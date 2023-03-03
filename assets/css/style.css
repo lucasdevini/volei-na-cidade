@@ -54,9 +54,12 @@ header.div-centralizada_horizontal {
 }
 
 .logo-header {
-    height: 40px;
-    width: 40px;
-    background-color: red;
+    height: 64px;
+    width: 64px;
+}
+
+.logo-header img {
+    width: 100%;
 }
 
 nav {
