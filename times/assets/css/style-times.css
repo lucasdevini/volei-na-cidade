@@ -1,3 +1,7 @@
+body {
+    background-color: var(--cor-principal-dark);
+}
+
 main {
     width: 100vw;
 }
@@ -15,13 +19,27 @@ section.div-centralizada_vertical {
     max-width: 300px;
     height: 400px;
     margin: 20px;
-    padding: 10px;
     text-align: center;
     border: 2px solid var(--cor-secundaria);
     border-radius: 5px;
 }
 
+.atleta.div-centralizada_vertical {
+    justify-content: space-between;
+}
+
+.atleta .container-img_atleta {
+    height: 80%;
+}
+
 .atleta img {
+    width: 100%;
+    height: 300px;
+}
+
+.atleta-info {
+    background-color: var(--cor-secundaria);
+    height: 20%;
     width: 100%;
 }
 
