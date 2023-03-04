@@ -1,0 +1,35 @@
+main {
+    width: 100vw;
+}
+
+section.div-centralizada_vertical {
+    align-items: center;
+}
+
+.atletas {
+    width: 100vw;
+    flex-wrap: wrap;
+}
+
+.atleta {
+    max-width: 300px;
+    height: 400px;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid var(--cor-secundaria);
+    border-radius: 5px;
+}
+
+.atleta img {
+    width: 100%;
+}
+
+.atleta h2 {
+    margin: 10px 0px;
+    color: var(--cor-principal);
+}
+
+.atleta h3 {
+    color: var(--cor-principal-dark);
+}
