@@ -32,10 +32,14 @@ section.div-centralizada_vertical {
     height: 80%;
 }
 
+.container-img_atleta {
+    justify-content: flex-end;
+}
+
 .atleta img {
     width: 100%;
     max-width: 350px;
-    height: 300px;
+    height: 250px;
 }
 
 .atleta-info {
