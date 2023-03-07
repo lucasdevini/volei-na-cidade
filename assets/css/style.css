@@ -165,8 +165,9 @@ section h2 {
     color: var(--cor-principal-dark);
 }
 
-.jogos.div-centralizada_vertical {
+.jogos.div-centralizada_horizontal {
     display: flex;
+    justify-content: flex-start;
     align-items: flex-start;
     width: 600vw;
     overflow: hidden;
@@ -176,7 +177,7 @@ section h2 {
     width: 100vw;
 }
 
-.rodada.div-centralizada_horizontal {
+.calendario.div-centralizada_horizontal {
     justify-content: space-between;
     width: 100vw;
     align-self: flex-start;
@@ -186,19 +187,14 @@ section h2 {
     padding: 10px 0px;
 }
 
-
-.rodada .n-rodada {
-    margin-bottom: 10px;
-}
-
-.rodada.div-centralizada_horizontal .mudar-rodada {
+.calendario.div-centralizada_horizontal .mudar-data {
     width: 80px;
     padding: 15px;
     font-size: 25px;
     cursor: pointer;
 }
 
-.mudar-rodada:hover {
+.mudar-data:hover {
     color: var(--cor-principal);
     transition: all 0.2s linear;
 }
@@ -213,8 +209,38 @@ section h2 {
     padding: 20px 0px;
 }
 
-.partida.div-centralizada_horizontal {
-    justify-content: space-around;
+.partida .n-rodada {
+    margin-bottom: 20px;
+}
+
+.resultados.div-centralizada_horizontal {
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.time input {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #bbb;
+    border-radius: 3px;
+    padding-left: 5px;
+    margin: 0px 20px;
+    outline: 0;
+    background-color: #fff;
+}
+
+.time img {
+    width: 50px;
+    height: 50px;
+}
+
+.partida .enviar {
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: var(--cor-principal);
+    cursor: pointer;
 }
 
 /* Section mapa */

@@ -147,7 +147,7 @@ let moveTabela = 0
 // --- Aplicação (Section rodadas)
 for (let cont = 0; cont < setaDireita.length; cont++) {
     setaDireita[cont].addEventListener('click', () => {
-        if(moveTabela > -500) {
+        if(moveTabela > -300) {
             moveTabela -= 100
             sliderJogos.style.marginLeft = moveTabela + 'vw'
         }
