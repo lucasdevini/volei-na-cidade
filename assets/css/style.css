@@ -137,6 +137,10 @@ table {
     text-align: center;
 }
 
+.escondido {
+    display: none;
+}
+
 th, td {
     width: 70px;
     border: 1px solid var(--cor-terciaria);

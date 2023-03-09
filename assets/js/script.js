@@ -19,122 +19,6 @@ fecharMenu.addEventListener('click', () => {
 
 // Main 
 
-/*
-// -------- Section tabela --------
-
-// -- Variáveis (Section tabela)
-const tbody = document.querySelector('tbody')
-const linhaTimes = tbody.querySelectorAll('tr')
-
-const valorComparar = []
-
-// Adiciona os valores das células nas variáveis
-for (let i = 0; i < linhaTimes.length; i++) {
-    const celulas = linhaTimes[i].querySelectorAll('td')
-    const valorCelula = []
-
-    for (let j = 0; j < celulas.length; j++) {
-        valorCelula.push(parseFloat(celulas[j].textContent) || celulas[j].textContent);
-    }
-
-    valorComparar.push(valorCelula)
-}
-
-// Compara e ordena os times com base nas vitórias, sets e pontos (linha da tabela)
-valorComparar.sort((a,b) => {
-    if(a[3] < b[3]) {
-        return 1;
-    } else if(a[3] > b[3]) {
-        return -1;
-    } else if(a[3] == b[3] & a[5] < b[5]) {
-        return 1;
-    } else if(a[3] == b[3] & a[5] > b[5]) {
-        return -1;
-    } else if(a[3] == b[3] & a[5] == b[5] & a[1] < b[1]) {
-        return 1;
-    } else if(a[3] == b[3] & a[5] == b[5] & a[1] > b[1]) {
-        return -1;
-    }
-})
-
-// Apagar as linhas da tabela
-for (let i = 0; i < linhaTimes.length; i++) {
-    tbody.removeChild(linhaTimes[i])
-}
-
-// Adicionar as linhas com ordenação
-for (let i = 0; i < linhaTimes.length; i++) {
-    const linhaTime = document.createElement('tr')
-    
-    // adicionar os valores às celulas da tabela
-    for (let j = 0; j < linhaTimes.length; j++) {
-        const celula = document.createElement('td')
-        celula.textContent = valorComparar[i][j]
-
-        // Condicionas para adicionar as logos das equipes
-        if(celula.textContent.includes('Crias')) {
-            const divLogo = document.createElement('div')
-            divLogo.classList.add('td-logo_equipe')
-            const logoEquipe = document.createElement('img')
-            logoEquipe.setAttribute('src', 'assets/imagens/logo-crias.png')
-            divLogo.appendChild(logoEquipe)
-            celula.appendChild(divLogo)
-        }
-
-        if(celula.textContent.includes('Maracanã')) {
-            const divLogo = document.createElement('div')
-            divLogo.classList.add('td-logo_equipe')
-            const logoEquipe = document.createElement('img')
-            logoEquipe.setAttribute('src', 'assets/imagens/logo-maracana.png')
-            divLogo.appendChild(logoEquipe)
-            celula.appendChild(divLogo)
-        }
-
-        if(celula.textContent.includes('Open')) {
-            const divLogo = document.createElement('div')
-            divLogo.classList.add('td-logo_equipe')
-            const logoEquipe = document.createElement('img')
-            logoEquipe.setAttribute('src', 'assets/imagens/logo-open.png')
-            divLogo.appendChild(logoEquipe)
-            celula.appendChild(divLogo)
-        }
-
-        if(celula.textContent.includes('Santa Maria')) {
-            const divLogo = document.createElement('div')
-            divLogo.classList.add('td-logo_equipe')
-            const logoEquipe = document.createElement('img')
-            logoEquipe.setAttribute('src', 'assets/imagens/logo-santa-maria.png')
-            divLogo.appendChild(logoEquipe) 
-            celula.appendChild(divLogo)
-        }
-
-        if(celula.textContent.includes('São Francisco')) {
-            const divLogo = document.createElement('div')
-            divLogo.classList.add('td-logo_equipe')
-            const logoEquipe = document.createElement('img')
-            logoEquipe.setAttribute('src', 'assets/imagens/logo-sao-franciso.png')
-            divLogo.appendChild(logoEquipe)
-            celula.appendChild(divLogo)
-        }
-
-        if(celula.textContent.includes('Vaporeon')) {
-            const divLogo = document.createElement('div')
-            divLogo.classList.add('td-logo_equipe')
-            const logoEquipe = document.createElement('img')
-            logoEquipe.setAttribute('src', 'assets/imagens/logo-vaporeon.png')
-            divLogo.appendChild(logoEquipe)
-            celula.appendChild(divLogo)
-        }
-
-        linhaTime.appendChild(celula)
-    }
-
-    tbody.appendChild(linhaTime)
-}
-
-// -------- Fim Section tabela --------
-*/
-
 // - Section rodadas 
 
 // -- Variáveis (Section rodadas)
@@ -206,8 +90,9 @@ let vitoriasMaracana = 0
 let derrotasMaracana = 0
 let setsMaracana = 0
 
+    // Adição dos valores à tabela
 for (let i = 0; i < enviar.length; i++) {
-  enviar[i].addEventListener('click', function() {
+enviar[i].addEventListener('click', function() {
     // Seleciona os inputs da div clicada
     const inputs = enviar[i].parentNode.querySelectorAll('input');
 
@@ -216,10 +101,10 @@ for (let i = 0; i < enviar.length; i++) {
     const value2 = parseInt(inputs[1].value);
 
     if ((value1 === 3 && value2 === 0) || (value1 === 0 && value2 === 3) || (value1 === 2 && value2 === 1) || (value1 === 1 && value2 === 2)) {
-      // Habilita o botão de enviar se os valores atendem às condições
-      enviar[i].classList.add('habilitado');
+    // Habilita o botão de enviar se os valores atendem às condições
+    enviar[i].classList.add('habilitado');
 
-      for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length; i++) {
         // condicional crias
         if(inputs[i].classList.contains('resultado-crias') && inputs[i].value == 3) {
             pontosCrias += 3
@@ -270,8 +155,7 @@ for (let i = 0; i < enviar.length; i++) {
             tdDerrotasCrias.textContent = derrotasCrias
             tdSetsCrias.textContent = setsCrias
         }
-       
-
+    
         if(inputs[i].classList.contains('resultado-maracana') && inputs[i].value == 3) {
                 pontosMaracana += 3
                 jogosMaracana += 1
@@ -321,23 +205,136 @@ for (let i = 0; i < enviar.length; i++) {
             tdDerrotasMaracana.textContent = derrotasMaracana
             tdSetsMaracana.textContent = setsMaracana
         }
-      }    
+    }    
 
-      enviar[i].textContent = 'Enviado';
-      enviar[i].style.backgroundColor = '#ccc';
-      enviar[i].removeEventListener('click', arguments.callee);
+    // -------- Section tabela --------
+        // Cria uma cópia da tabela original
+        const tabelaOriginal = document.querySelector('table')
+        const tabelaOrdenada = tabelaOriginal.cloneNode(true)
+        tabelaOrdenada.classList.add('tabela-nova')
 
-      alert('resultado atualizado!')
-    } else {
-      // Desabilita o botão de enviar se os valores não atendem às condições
-      enviar[i].classList.remove('habilitado');
+        console.log(tabelaOrdenada)
 
-      alert('não foi possível enviar os resultados! Por favor, digite o valor dos sets corretamente')
+        const tabelaOrdenadaAnterior = document.querySelector('.tabela-nova')
+        if (tabelaOrdenadaAnterior) {
+            tabelaOrdenadaAnterior.remove()
+        }
+
+        // Seleciona o body da tabela
+        const tbody = tabelaOrdenada.querySelector('tbody')
+        const linhaTimes = tbody.querySelectorAll('tr')
+
+        const valorComparar = []
+
+        // Adiciona os valores das células nas variáveis
+        for (let i = 0; i < linhaTimes.length; i++) {
+        const celulas = linhaTimes[i].querySelectorAll('td')
+        const valorCelula = []
+
+        for (let j = 0; j < celulas.length; j++) {
+            valorCelula.push(parseFloat(celulas[j].textContent) || celulas[j].textContent)
+        }
+
+        valorComparar.push(valorCelula)
+        }
+
+        // Ordena a tabela por vitórias, sets e pontos
+        valorComparar.sort((a, b) => (a[3] < b[3]) ? 1 : (a[3] > b[3]) ? -1 : (a[5] < b[5]) ? 1 : (a[5] > b[5]) ? -1 : (a[1] < b[1]) ? 1 : (a[1] > b[1]) ? -1 : 0)
+
+// Limpa o body da tabela
+tbody.innerHTML = ''
+
+// Adiciona as linhas ordenadas ao body da tabela
+for (let i = 0; i < linhaTimes.length; i++) {
+const linhaTime = document.createElement('tr')
+
+// Adiciona os valores às células da tabela
+for (let j = 0; j < linhaTimes.length; j++) {
+    const celula = document.createElement('td')
+    celula.textContent = valorComparar[i][j]
+
+        // Adiciona as logos das equipes
+        if(celula.textContent.includes('Crias')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-crias.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('Maracanã')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-maracana.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('Open')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-open.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('Santa Maria')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-santa-maria.png')
+            divLogo.appendChild(logoEquipe) 
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('São Francisco')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-sao-franciso.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('Vaporeon')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-vaporeon.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        linhaTime.appendChild(celula)
     }
-  });
+
+    tbody.appendChild(linhaTime)
+
+    // Esconde a tabela original e exibe a tabela ordenada
+    
 }
 
+tabelaOriginal.style.display = 'none'
+tabelaOrdenada.style.display = 'table'
+tabelaOriginal.parentNode.insertBefore
+(tabelaOrdenada, tabelaOriginal.nextSibling)
 
+enviar[i].textContent = 'Enviado';
+enviar[i].style.backgroundColor = '#ccc';
+enviar[i].removeEventListener('click', arguments.callee);
+
+    alert('resultado atualizado!')
+} else {
+    // Desabilita o botão de enviar se os valores não atendem às condições
+    enviar[i].classList.remove('habilitado');
+
+    alert('não foi possível enviar os resultados! Por favor, digite o valor dos sets corretamente')
+}
+});
+}
 
 
 
