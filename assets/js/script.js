@@ -19,6 +19,7 @@ fecharMenu.addEventListener('click', () => {
 
 // Main 
 
+/*
 // -------- Section tabela --------
 
 // -- Variáveis (Section tabela)
@@ -131,10 +132,8 @@ for (let i = 0; i < linhaTimes.length; i++) {
     tbody.appendChild(linhaTime)
 }
 
-// --- Aplicação (Section tabela)
-
 // -------- Fim Section tabela --------
-
+*/
 
 // - Section rodadas 
 
@@ -162,6 +161,191 @@ for (let cont = 0; cont < setaDireita.length; cont++) {
         }
     })
 }
+
+// Enviar resultados dos times
+const inputTime = document.querySelectorAll('.time input')
+
+// impedir digitos além de 0, 1, 2 ou 3
+for (let i = 0; i < inputTime.length; i++) {
+    inputTime[i].type = 'number';
+    inputTime[i].setAttribute("maxlength", "1");
+    inputTime[i].setAttribute("min", "0");
+    inputTime[i].setAttribute("max", "3");
+    inputTime[i].addEventListener('input', function(e) {
+        let value = e.target.value;
+        if (value !== '0' && value !== '1' && value !== '2' && value !== '3') {
+            e.target.value = value.slice(0, -1);
+        }
+    });
+}
+
+// Seleciona todas as divs "enviar"
+const enviar = document.querySelectorAll('.enviar');
+
+// Variáveis do time crias
+const tdPontosCrias = document.querySelector('#tr-crias .td-pontos')
+const tdJogosCrias = document.querySelector('#tr-crias .td-jogos')
+const tdVitoriasCrias = document.querySelector('#tr-crias .td-vitorias')
+const tdDerrotasCrias = document.querySelector('#tr-crias .td-derrotas')
+const tdSetsCrias = document.querySelector('#tr-crias .td-sets')
+let pontosCrias = 0
+let jogosCrias = 0
+let vitoriasCrias = 0
+let derrotasCrias = 0
+let setsCrias = 0
+
+// Variáveis do time Maracanã
+const tdPontosMaracana = document.querySelector('#tr-maracana .td-pontos')
+const tdJogosMaracana = document.querySelector('#tr-maracana .td-jogos')
+const tdVitoriasMaracana = document.querySelector('#tr-maracana .td-vitorias')
+const tdDerrotasMaracana = document.querySelector('#tr-maracana .td-derrotas')
+const tdSetsMaracana = document.querySelector('#tr-maracana .td-sets')
+let pontosMaracana = 0
+let jogosMaracana = 0
+let vitoriasMaracana = 0
+let derrotasMaracana = 0
+let setsMaracana = 0
+
+for (let i = 0; i < enviar.length; i++) {
+  enviar[i].addEventListener('click', function() {
+    // Seleciona os inputs da div clicada
+    const inputs = enviar[i].parentNode.querySelectorAll('input');
+
+    // Verifica os valores dos inputs
+    const value1 = parseInt(inputs[0].value);
+    const value2 = parseInt(inputs[1].value);
+
+    if ((value1 === 3 && value2 === 0) || (value1 === 0 && value2 === 3) || (value1 === 2 && value2 === 1) || (value1 === 1 && value2 === 2)) {
+      // Habilita o botão de enviar se os valores atendem às condições
+      enviar[i].classList.add('habilitado');
+
+      for (let i = 0; i < inputs.length; i++) {
+        // condicional crias
+        if(inputs[i].classList.contains('resultado-crias') && inputs[i].value == 3) {
+            pontosCrias += 3
+            jogosCrias += 1
+            vitoriasCrias += 1
+            derrotasCrias += 0
+            setsCrias += 3
+
+            tdPontosCrias.textContent = pontosCrias
+            tdJogosCrias.textContent = jogosCrias
+            tdVitoriasCrias.textContent = vitoriasCrias
+            tdDerrotasCrias.textContent = derrotasCrias
+            tdSetsCrias.textContent = setsCrias
+        } else if (inputs[i].classList.contains('resultado-crias') && inputs[i].value == 2) {
+            pontosCrias += 2
+            jogosCrias += 1
+            vitoriasCrias += 1
+            derrotasCrias += 0
+            setsCrias += 2
+
+            tdPontosCrias.textContent = pontosCrias
+            tdJogosCrias.textContent = jogosCrias
+            tdVitoriasCrias.textContent = vitoriasCrias
+            tdDerrotasCrias.textContent = derrotasCrias
+            tdSetsCrias.textContent = setsCrias
+        } else if(inputs[i].classList.contains('resultado-crias') && inputs[i].value == 1) {
+            pontosCrias += 1
+            jogosCrias += 1
+            vitoriasCrias += 0
+            derrotasCrias += 1
+            setsCrias += 1
+
+            tdPontosCrias.textContent = pontosCrias
+            tdJogosCrias.textContent = jogosCrias
+            tdVitoriasCrias.textContent = vitoriasCrias
+            tdDerrotasCrias.textContent = derrotasCrias
+            tdSetsCrias.textContent = setsCrias
+        } else if(inputs[i].classList.contains('resultado-crias') && inputs[i].value == 0) {
+            pontosCrias += 0
+            jogosCrias += 1
+            vitoriasCrias += 0
+            derrotasCrias += 1
+            setsCrias += 0
+
+            tdPontosCrias.textContent = pontosCrias
+            tdJogosCrias.textContent = jogosCrias
+            tdVitoriasCrias.textContent = vitoriasCrias
+            tdDerrotasCrias.textContent = derrotasCrias
+            tdSetsCrias.textContent = setsCrias
+        }
+       
+
+        if(inputs[i].classList.contains('resultado-maracana') && inputs[i].value == 3) {
+                pontosMaracana += 3
+                jogosMaracana += 1
+                vitoriasMaracana += 1
+                derrotasMaracana += 0
+                setsMaracana += 3
+
+                tdPontosMaracana.textContent = pontosMaracana
+                tdJogosMaracana.textContent = jogosMaracana
+                tdVitoriasMaracana.textContent = vitoriasMaracana
+                tdDerrotasMaracana.textContent = derrotasMaracana
+                tdSetsMaracana.textContent = setsMaracana
+        } else if (inputs[i].classList.contains('resultado-maracana') && inputs[i].value == 2) {
+            pontosMaracana += 2
+            jogosMaracana += 1
+            vitoriasMaracana += 1
+            derrotasMaracana += 0
+            setsMaracana += 2
+
+            tdPontosMaracana.textContent = pontosMaracana
+            tdJogosMaracana.textContent = jogosMaracana
+            tdVitoriasMaracana.textContent = vitoriasMaracana
+            tdDerrotasMaracana.textContent = derrotasMaracana
+            tdSetsMaracana.textContent = setsMaracana
+        } else if (inputs[i].classList.contains('resultado-maracana') && inputs[i].value == 1) {
+            pontosMaracana += 1
+            jogosMaracana += 1
+            vitoriasMaracana += 0
+            derrotasMaracana += 1
+            setsMaracana += 1
+
+            tdPontosMaracana.textContent = pontosMaracana
+            tdJogosMaracana.textContent = jogosMaracana
+            tdVitoriasMaracana.textContent = vitoriasMaracana
+            tdDerrotasMaracana.textContent = derrotasMaracana
+            tdSetsMaracana.textContent = setsMaracana
+        } else if (inputs[i].classList.contains('resultado-maracana') && inputs[i].value == 0) {
+            pontosMaracana += 0
+            jogosMaracana += 1
+            vitoriasMaracana += 0
+            derrotasMaracana += 1
+            setsMaracana += 0
+
+            tdPontosMaracana.textContent = pontosMaracana
+            tdJogosMaracana.textContent = jogosMaracana
+            tdVitoriasMaracana.textContent = vitoriasMaracana
+            tdDerrotasMaracana.textContent = derrotasMaracana
+            tdSetsMaracana.textContent = setsMaracana
+        }
+      }    
+
+      enviar[i].textContent = 'Enviado';
+      enviar[i].style.backgroundColor = '#ccc';
+      enviar[i].removeEventListener('click', arguments.callee);
+
+      alert('resultado atualizado!')
+    } else {
+      // Desabilita o botão de enviar se os valores não atendem às condições
+      enviar[i].classList.remove('habilitado');
+
+      alert('não foi possível enviar os resultados! Por favor, digite o valor dos sets corretamente')
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
