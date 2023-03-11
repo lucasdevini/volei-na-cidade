@@ -21,26 +21,31 @@
             </div>
 
             <ul>
-                <li>
-                    <a href="">Home</a>
+                <li style="display: none">
+                    <a href="#logo-header">Home</a>
                 </li>
 
                 <li>
-                    <a href="">Classificação</a>
+                    <a href="#sec-tabela">Classificação</a>
                 </li>
 
                 <li>
-                    <a href="">Calendário</a>
+                    <a href="#sec-calendario">Calendário</a>
                 </li>
 
                 <li>
-                    <a href="">Times</a>
+                    <a href="#sec-equipes">Times</a>
                 </li>
 
                 <li>
-                    <a href="">Local dos jogos</a>
+                    <a href="#sec-mapa">Local dos jogos</a>
                 </li>
             </ul>
+
+            <div class="dev div-centralizada_horizontal">
+                Site desenvolvido por Lucas Vinícius
+                <div class="dev-social div-centralizada_horizontal"><a href="https://wa.me/5591981703865" target="_blank"><i class="fa-brands fa-square-whatsapp" id="whatsapp"></i></a> <a href="https://github.com/lucasdevini/" target="_blank"><i class="fa-brands fa-github"></i></a></div>
+            </div>
         </nav>
 
         <div class="menu div-centralizada_vertical">
@@ -51,7 +56,7 @@
     </header>
 
     <main>
-        <section class="tabela-classificao div-centralizada_vertical">
+        <section class="tabela-classificao div-centralizada_vertical" id="sec-tabela">
             <table>
                 <thead>
                     <tr>
@@ -167,7 +172,7 @@
         </section>
 
         <section class="rodadas div-centralizada_vertical">
-            <h2>
+            <h2 id="sec-calendario">
                 Calendário dos jogos
             </h2>
 
@@ -847,49 +852,73 @@
         </section>
 
         <section class="equipes div-centralizada_vertical">
-            <h2>Equipes</h2>
+            <h2 id="sec-equipes">Equipes</h2>
 
             <div class="container-equipes div-centralizada_horizontal">
                 <div class="equipe div-centralizada_vertical">
                     <a href="times/crias/crias.html">
                         <img src="assets/imagens/logo-crias.png" alt="Logo da equipe crias">
                     </a>
+
+                    <div class="elenco">
+                        <a href="times/crias/crias.html">Elenco</a>
+                    </div>
                 </div>
                 
                 <div class="equipe div-centralizada_vertical">
                     <a href="times/maracana/maracana.html">
                         <img src="assets/imagens/logo-maracana.png" alt="Logo da equipe Maracanã">
                     </a>
+
+                    <div class="elenco">
+                        <a href="times/maracana/maracana.html">Elenco</a>
+                    </div>
                 </div>
 
                 <div class="equipe div-centralizada_vertical">
                     <a href="times/open/open.html">
                         <img src="assets/imagens/logo-open.png" alt="Logo da equipe Open">
                     </a>
+
+                    <div class="elenco">
+                        <a href="times/crias/open.html">Elenco</a>
+                    </div>
                 </div>
 
                 <div class="equipe div-centralizada_vertical">
                     <a href="times/santa-maria/santa-maria.html">
                         <img src="assets/imagens/logo-santa-maria.png" alt="Logo da equipe Santa Maria">
                     </a>
+
+                    <div class="elenco">
+                        <a href="times/crias/santa-maria.html">Elenco</a>
+                    </div>
                 </div>
 
                 <div class="equipe div-centralizada_vertical">
                     <a href="times/sao-francisco/sao-francisco.html">
                         <img src="assets/imagens/logo-sao-franciso.png" alt="Logo da equipe São Francisco">
                     </a>
+
+                    <div class="elenco">
+                        <a href="times/crias/sao-francisco.html">Elenco</a>
+                    </div>
                 </div>
 
                 <div class="equipe div-centralizada_vertical">
                     <a href="times/vaporeon/vaporeon.html">
                         <img src="assets/imagens/logo-vaporeon.png" alt="Logo da equipe Vaporeon">
                     </a>
+
+                    <div class="elenco">
+                        <a href="times/crias/vaporeon.html">Elenco</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="mapa div-centralizada_vertical">
-            <h2>Local dos jogos</h2>
+            <h2 id="sec-mapa">Local dos jogos</h2>
 
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0447317168882!2d-47.62001698255615!3d-1.128296199999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a593bad5bc1b0d%3A0x99822a9d5967b887!2sGin%C3%A1sio%20Poliesportivo%20Municipal!5e0!3m2!1spt-BR!2sbr!4v1677768490130!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
         </section>
