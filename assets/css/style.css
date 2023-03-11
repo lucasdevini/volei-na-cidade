@@ -153,6 +153,7 @@ th, td {
 }
 
 .desempatar-times {
+    display: none;
     margin-top: 30px;
 }
 
@@ -228,6 +229,10 @@ section h2 {
 }
 
 .partida .n-rodada {
+    margin-bottom: 5px;
+}
+
+.partida .hora {
     margin-bottom: 20px;
 }
 
@@ -237,6 +242,7 @@ section h2 {
 }
 
 .time input {
+    display: none;
     width: 35px;
     height: 35px;
     text-align: center;
@@ -265,6 +271,7 @@ input[type=number]::-webkit-outer-spin-button {
     color: #fff;
     background-color: var(--cor-principal);
     cursor: pointer;
+    display: none;
 }
 
 /* Section mapa */
