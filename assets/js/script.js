@@ -163,6 +163,142 @@ let tdDesempatarSaoFrancisco = 0
 let tdDesempatarVaporeon = 0
 
 // Dinâmica da tabela
+// -------- Section tabela --------
+        // Cria uma cópia da tabela original
+        const tabelaOriginal = document.querySelector('table')
+        const tabelaOrdenada = tabelaOriginal.cloneNode(true)
+        tabelaOrdenada.classList.add('tabela-nova')
+
+        const tabelaOrdenadaAnterior = document.querySelector('.tabela-nova')
+        if (tabelaOrdenadaAnterior) {
+            tabelaOrdenadaAnterior.remove()
+        }
+
+        // Seleciona o body da tabela
+        const tbody = tabelaOrdenada.querySelector('tbody')
+        const linhaTimes = tbody.querySelectorAll('tr')
+
+        const valorComparar = []
+
+        // Adiciona os valores das células nas variáveis
+        for (let i = 0; i < linhaTimes.length; i++) {
+            const celulas = linhaTimes[i].querySelectorAll('td')
+            const valorCelula = []
+
+            for (let j = 0; j < celulas.length; j++) {
+                valorCelula.push(parseFloat(celulas[j].textContent) || celulas[j].textContent)
+            }
+
+            valorComparar.push(valorCelula)
+            // Possível solução para adicionar o confronto direto
+        }
+
+        // Ordena a tabela por vitórias, pontos e confronto direto
+        valorComparar.sort(function(a, b) {
+            if (a[3] < b[3]) {
+                return 1;
+            } else if (a[3] > b[3]) {
+                return -1;
+            } else if (a[1] < b[1]) {
+                return 1;
+            } else if (a[1] > b[1]) {
+                return -1;
+            } else if(a[6] > b[6]) {
+                return 1;
+            } else if(a[6] < b[6]) {
+                return -1;
+            } else if(a[5] < b[5]) {
+                return 1;
+            } else if(a[5] > b[5]) {
+                return -1; 
+            } else if(a[4] > b[4]) {
+                return 1
+            } else if(a[4] < b[4]) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+          
+// Limpa o body da tabela
+tbody.innerHTML = ''
+
+// Adiciona as linhas ordenadas ao body da tabela
+for (let i = 0; i < linhaTimes.length; i++) {
+const linhaTime = document.createElement('tr')
+
+// Adiciona os valores às células da tabela
+for (let j = 0; j < linhaTimes.length; j++) {
+    const celula = document.createElement('td')
+    celula.textContent = valorComparar[i][j]
+
+        // Adiciona as logos das equipes
+        if(celula.textContent.includes('Crias')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-crias.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('Maracanã')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-maracana.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('Open')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-open.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('Santa Maria')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-santa-maria.png')
+            divLogo.appendChild(logoEquipe) 
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('São Francisco')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-sao-franciso.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        if(celula.textContent.includes('Vaporeon')) {
+            const divLogo = document.createElement('div')
+            divLogo.classList.add('td-logo_equipe')
+            const logoEquipe = document.createElement('img')
+            logoEquipe.setAttribute('src', 'assets/imagens/logo-vaporeon.png')
+            divLogo.appendChild(logoEquipe)
+            celula.appendChild(divLogo)
+        }
+
+        linhaTime.appendChild(celula)
+    }
+
+    tbody.appendChild(linhaTime)
+    }
+
+    // Esconde a tabela original e exibe a tabela ordenada
+    tabelaOriginal.style.display = 'none'
+    tabelaOrdenada.style.display = 'table'
+    tabelaOriginal.parentNode.insertBefore
+    (tabelaOrdenada, tabelaOriginal.nextSibling)
+
 for (let i = 0; i < enviar.length; i++) {
 enviar[i].addEventListener('click', function() {
     // Seleciona os inputs da div clicada
@@ -529,10 +665,18 @@ enviar[i].addEventListener('click', function() {
                 return 1;
             } else if(a[6] < b[6]) {
                 return -1;
-            } {
+            } else if(a[5] < b[5]) {
+                return 1;
+            } else if(a[5] > b[5]) {
+                return -1; 
+            } else if(a[4] > b[4]) {
+                return 1
+            } else if(a[4] < b[4]) {
+                return -1;
+            } else {
                 return 0;
-            } 
-          });
+            }
+        });
           
 // Limpa o body da tabela
 tbody.innerHTML = ''
@@ -671,14 +815,22 @@ botaoDesempatar[0].addEventListener('click', () => {
             return 1;
         } else if (a[1] > b[1]) {
             return -1;
-        } else if(a[6] < b[6]) {
-            return 1;
         } else if(a[6] > b[6]) {
+            return 1;
+        } else if(a[6] < b[6]) {
             return -1;
-        } {
+        } else if(a[5] < b[5]) {
+            return 1;
+        } else if(a[5] > b[5]) {
+            return -1; 
+        } else if(a[4] > b[4]) {
+            return 1
+        } else if(a[4] < b[4]) {
+            return -1;
+        } else {
             return 0;
-        } 
-        });
+        }
+    });
           
     // Limpa o body da tabela
     tbody.innerHTML = ''
@@ -808,14 +960,22 @@ botaoDesempatar[1].addEventListener('click', () => {
             return 1;
         } else if (a[1] > b[1]) {
             return -1;
-        } else if(a[6] < b[6]) {
-            return 1;
         } else if(a[6] > b[6]) {
+            return 1;
+        } else if(a[6] < b[6]) {
             return -1;
-        } {
+        } else if(a[5] < b[5]) {
+            return 1;
+        } else if(a[5] > b[5]) {
+            return -1; 
+        } else if(a[4] > b[4]) {
+            return 1
+        } else if(a[4] < b[4]) {
+            return -1;
+        } else {
             return 0;
-        } 
-        });
+        }
+    });
           
     // Limpa o body da tabela
     tbody.innerHTML = ''
@@ -945,14 +1105,22 @@ botaoDesempatar[2].addEventListener('click', () => {
             return 1;
         } else if (a[1] > b[1]) {
             return -1;
-        } else if(a[6] < b[6]) {
-            return 1;
         } else if(a[6] > b[6]) {
+            return 1;
+        } else if(a[6] < b[6]) {
             return -1;
-        } {
+        } else if(a[5] < b[5]) {
+            return 1;
+        } else if(a[5] > b[5]) {
+            return -1; 
+        } else if(a[4] > b[4]) {
+            return 1
+        } else if(a[4] < b[4]) {
+            return -1;
+        } else {
             return 0;
-        } 
-        });
+        }
+    });
           
     // Limpa o body da tabela
     tbody.innerHTML = ''
@@ -1082,14 +1250,22 @@ botaoDesempatar[3].addEventListener('click', () => {
             return 1;
         } else if (a[1] > b[1]) {
             return -1;
-        } else if(a[6] < b[6]) {
-            return 1;
         } else if(a[6] > b[6]) {
+            return 1;
+        } else if(a[6] < b[6]) {
             return -1;
-        } {
+        } else if(a[5] < b[5]) {
+            return 1;
+        } else if(a[5] > b[5]) {
+            return -1; 
+        } else if(a[4] > b[4]) {
+            return 1
+        } else if(a[4] < b[4]) {
+            return -1;
+        } else {
             return 0;
-        } 
-        });
+        }
+    });
           
     // Limpa o body da tabela
     tbody.innerHTML = ''
@@ -1219,14 +1395,22 @@ botaoDesempatar[4].addEventListener('click', () => {
             return 1;
         } else if (a[1] > b[1]) {
             return -1;
-        } else if(a[6] < b[6]) {
-            return 1;
         } else if(a[6] > b[6]) {
+            return 1;
+        } else if(a[6] < b[6]) {
             return -1;
-        } {
+        } else if(a[5] < b[5]) {
+            return 1;
+        } else if(a[5] > b[5]) {
+            return -1; 
+        } else if(a[4] > b[4]) {
+            return 1
+        } else if(a[4] < b[4]) {
+            return -1;
+        } else {
             return 0;
-        } 
-        });
+        }
+    });
           
     // Limpa o body da tabela
     tbody.innerHTML = ''
@@ -1356,14 +1540,22 @@ botaoDesempatar[5].addEventListener('click', () => {
             return 1;
         } else if (a[1] > b[1]) {
             return -1;
-        } else if(a[6] < b[6]) {
-            return 1;
         } else if(a[6] > b[6]) {
+            return 1;
+        } else if(a[6] < b[6]) {
             return -1;
-        } {
+        } else if(a[5] < b[5]) {
+            return 1;
+        } else if(a[5] > b[5]) {
+            return -1; 
+        } else if(a[4] > b[4]) {
+            return 1
+        } else if(a[4] < b[4]) {
+            return -1;
+        } else {
             return 0;
-        } 
-        });
+        }
+    });
           
     // Limpa o body da tabela
     tbody.innerHTML = ''
