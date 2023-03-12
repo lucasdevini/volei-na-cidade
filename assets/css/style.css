@@ -194,7 +194,8 @@ tr td:first-child {
     border-left: none;
 }
 
-tr th:last-child {
+tr th:last-child,
+tr td:last-child {
     border-right: none;
 }
 
@@ -288,6 +289,11 @@ section h2 {
 
 .resultados.div-centralizada_horizontal {
     width: 100%;
+    justify-content: space-evenly;
+}
+
+.time.div-centralizada_horizontal {
+    width: 40%;
     justify-content: space-evenly;
 }
 
